@@ -10,6 +10,7 @@ import { SettingsService } from "./settings.service";
 export class AmpdRxStompConfigService extends RxStompConfig {
   constructor(
     private location: Location,
+
     private settingsService: SettingsService
   ) {
     super();
@@ -31,7 +32,7 @@ export class AmpdRxStompConfigService extends RxStompConfig {
     // Skip this key to stop logging to console
     this.debug = (msg: string): void => {
       if (environment.wsLog) {
-        console.log(new Date(), msg);
+        console.debug(new Date(), msg);
       }
     };
     this.splitLargeFrames = true;

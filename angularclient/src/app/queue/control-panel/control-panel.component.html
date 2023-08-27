@@ -1,4 +1,4 @@
-<div class="flex flex-row justify-between md:justify-start">
+<div class="flex flex-row flex-wrap justify-between md:justify-start">
   <button
     (click)="handleControlButton($event)"
     [disabled]="(connected$ | async) === false"
@@ -7,6 +7,16 @@
     title="Previous track"
   >
     <mat-icon>skip_previous</mat-icon>
+  </button>
+  <button
+    (click)="handleControlButton($event)"
+    [disabled]="(connected$ | async) === false"
+    id="btn-seek-backwards"
+    mat-stroked-button
+    title="Jump backwards"
+    *ngIf="displayJumpBtn"
+  >
+    <mat-icon>navigate_before</mat-icon>
   </button>
   <button
     (click)="handleControlButton($event)"
@@ -36,6 +46,16 @@
     title="Play"
   >
     <mat-icon>play_arrow</mat-icon>
+  </button>
+  <button
+    (click)="handleControlButton($event)"
+    [disabled]="(connected$ | async) === false"
+    id="btn-seek-forward"
+    mat-stroked-button
+    title="Jump forward"
+    *ngIf="displayJumpBtn"
+  >
+    <mat-icon>navigate_next</mat-icon>
   </button>
   <button
     (click)="handleControlButton($event)"
